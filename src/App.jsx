@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-	const [tweet, setTweet] = useState("");
+	const [comment, setComment] = useState("");
   const [sentiment, setSentiment] = useState(""); //"Negative" or "Positive"
 	const OPENAI_API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -11,7 +11,7 @@ function App() {
 
     const APIBody = {
       "model": "text-davinci-003",
-      "prompt": "Is the sentiment of this tweet positive or negativ (but with an emoji)? " + tweet,
+      "prompt": "Is the sentiment of this comment positive or negativ (but with an emoji)? " + comment,
       "temperature": 0,
       "max_tokens": 60,
       "top_p": 1.0,
@@ -34,24 +34,25 @@ function App() {
 		});
   }
 
-  console.log({tweet})
-
   return (
     <div className="App">
       <div>
         <textarea
-          onChange={(e) => setTweet(e.target.value)}
-          placeholder='Paste your tweet here!'
+          onChange={(e) => setComment(e.target.value)}
+          placeholder='Paste your comment here!'
           cols={50}
           rows={10}
         />
 
+				<br />
+				<br />
+
         <div>
           <button onClick={callOpenAIAPI}>
-            Get The Tweet Sentiment From OpenAI API
+            Get The Sentiment Of This Comment!
           </button>
           {sentiment !==  ""
-            ? <h3>This Tweet Is: {sentiment}</h3>
+            ? <h3>This Comment Is: {sentiment}</h3>
             : null
           }
         </div>
