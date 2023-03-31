@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import DoubleArrow from '@mui/icons-material/DoubleArrow'
 
 function App() {
 	const [comment, setComment] = useState("");
@@ -11,7 +12,7 @@ function App() {
 
     const APIBody = {
       "model": "text-davinci-003",
-      "prompt": "Is the sentiment of this comment positive or negativ (but with an emoji)? " + comment,
+      "prompt": "Is the sentiment of this comment positive or negative (but with an emoji)? " + comment,
       "temperature": 0,
       "max_tokens": 60,
       "top_p": 1.0,
@@ -34,9 +35,15 @@ function App() {
 		});
   }
 
+  console.log({comment});
+
   return (
     <div className="App">
       <div>
+        <div className="description">
+          <p>Uncertain about the sentiment behind a text you received or a comment you read? Use a bot to help you with that 🤖</p>
+        </div>
+
         <textarea
           onChange={(e) => setComment(e.target.value)}
           placeholder='Paste your comment here!'
@@ -47,14 +54,16 @@ function App() {
 				<br />
 				<br />
 
-        <div>
-          <button onClick={callOpenAIAPI}>
-            Get The Sentiment Of This Comment!
+        <div className="wrapper">
+          <button className="get-sentiment-btn" onClick={callOpenAIAPI}>
+            <DoubleArrow>Outlined</DoubleArrow> Get The Sentiment Of This Text!
           </button>
+
           {sentiment !==  ""
-            ? <h3>This Comment Is: {sentiment}</h3>
+            ? <h2><span className="sentiment-response">{sentiment}</span></h2>
             : null
           }
+
         </div>
       </div>
     </div>
