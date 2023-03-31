@@ -8,6 +8,7 @@ Interpreting the tone of a text message or comment can be challenging, as it's o
 - [Vite](https://vitejs.dev/) - A fast build tool for modern web applications
 - [React](https://reactjs.org/) - Front-end JS framework used for building user interfaces
 - [OpenAI API](https://platform.openai.com/) - Cloud-based service with access to powerful pre-trained AI models
+- [Material UI](https://fonts.google.com/icons?) - Icons
 
 ## Installation
 
