@@ -12,7 +12,7 @@ function App() {
 
     const APIBody = {
       "model": "text-davinci-003",
-      "prompt": "Is the sentiment of this comment positive or negative (but with an emoji)? " + comment,
+      "prompt": "Is the sentiment of this comment positive or negative, and add a rating out of 10 (with an emoji)? " + comment,
       "temperature": 0,
       "max_tokens": 60,
       "top_p": 1.0,
@@ -41,7 +41,8 @@ function App() {
     <div className="App">
       <div>
         <div className="description">
-          <p>Uncertain about the sentiment behind a text you received or a comment you read? Use a bot to help you with that 🤖</p>
+          <p>What's the sentiment behind that text or comment?</p> 
+          <p>🤖 This bot will help you with that! 🤖</p>
         </div>
 
         <textarea
@@ -56,7 +57,7 @@ function App() {
 
         <div className="wrapper">
           <button className="get-sentiment-btn" onClick={callOpenAIAPI}>
-            <DoubleArrow>Outlined</DoubleArrow> Get The Sentiment Of This Text!
+            <DoubleArrow>Outlined</DoubleArrow> Get Sentiment Of This Text
           </button>
 
           {sentiment !==  ""

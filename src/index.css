@@ -55,6 +55,11 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+textarea {
+  padding: 10px;
+}
+
 .get-sentiment-btn {
   display: flex;
   align-items: center;
@@ -75,6 +80,7 @@ button:focus-visible {
 }
 
 .description {
+  line-height: 0.5;
   margin-top: -200px;
   height: 80px;
   max-width: 500px;
